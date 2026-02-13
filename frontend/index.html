@@ -1,73 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Blog App</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <!-- Navbar -->
+    <!-- Navigation -->
     <nav class="navbar">
-        <h2>MyBlog</h2>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#login">Login</a></li>
-            <li><a href="#signup">Signup</a></li>
+        <div class="nav-brand">
+            <h2>MyBlog</h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#post-section">Home</a></li>
+            <li><a href="#auth-section">Login</a></li>
+            <li><a href="#auth-section">Signup</a></li>
             <li><a href="#poll">Poll</a></li>
         </ul>
     </nav>
 
+    <!-- Main Container -->
     <div class="container">
-
-        <!-- Member 2 Section -->
-        <section id="auth-section">
+        <!-- Authentication Section -->
+        <section id="auth-section" class="section">
             <h3>Login</h3>
-            <input type="text" placeholder="Username">
-            <input type="password" placeholder="Password">
-            <button>Login</button>
+            <div class="form-group">
+                <input type="text" placeholder="Username" class="form-input">
+                <input type="password" placeholder="Password" class="form-input">
+                <button class="btn btn-primary" onclick="handleLogin()">Login</button>
+            </div>
 
             <h3>Signup</h3>
-            <input type="text" placeholder="New Username">
-            <input type="password" placeholder="New Password">
-            <button>Signup</button>
+            <div class="form-group">
+                <input type="text" placeholder="New Username" class="form-input">
+                <input type="password" placeholder="New Password" class="form-input">
+                <button class="btn btn-secondary" onclick="handleSignup()">Signup</button>
+            </div>
         </section>
 
-        <!-- Member 3 Section -->
-        <section id="post-section">
-            <h3>News Post</h3>
-            <p>This is a sample news/blog content.</p>
-            <button onclick="likePost()">👍 Like (<span id="likeCount">0</span>)</button>
+        <!-- Blog Post Section -->
+        <section id="post-section" class="section">
+            <h3>Latest News Post</h3>
+            <div class="post-content">
+                <p>This is a sample news/blog content. Stay tuned for more updates!</p>
+                <div class="post-actions">
+                    <button class="btn btn-like" onclick="likePost()">
+                        👍 Like (<span id="likeCount">0</span>)
+                    </button>
+                </div>
+            </div>
         </section>
 
-        <!-- Member 4 Section -->
-        <section id="comment-section">
+        <!-- Comments Section -->
+        <section id="comment-section" class="section">
             <h3>Comments</h3>
-            <input type="text" id="commentInput" placeholder="Write a comment">
-            <button onclick="addComment()">Post</button>
-            <ul id="commentList"></ul>
+            <div class="comment-form">
+                <input type="text" id="commentInput" placeholder="Write a comment" class="form-input">
+                <button class="btn btn-primary" onclick="addComment()">Post Comment</button>
+            </div>
+            <ul id="commentList" class="comment-list"></ul>
         </section>
 
-        <!-- Member 5 Section -->
-        <section id="poll">
+        <!-- Poll Section -->
+        <section id="poll" class="section">
             <h3>Poll: Which type of app do you prefer?</h3>
-            <button onclick="vote('news')">News App</button>
-            <button onclick="vote('blog')">Blog App</button>
-            <p>News: <span id="newsVotes">0</span></p>
-            <p>Blog: <span id="blogVotes">0</span></p>
+            <div class="poll-options">
+                <button class="btn btn-poll" onclick="vote('news')">News App</button>
+                <button class="btn btn-poll" onclick="vote('blog')">Blog App</button>
+            </div>
+            <div class="poll-results">
+                <p>News: <span id="newsVotes">0</span> votes</p>
+                <p>Blog: <span id="blogVotes">0</span> votes</p>
+            </div>
         </section>
 
-        <!-- Links List -->
-        <section>
+        <!-- Useful Links -->
+        <section class="section">
             <h3>Useful Links</h3>
-            <ul>
-                <li><a href="#">Latest News</a></li>
-                <li><a href="#">Trending Blogs</a></li>
-                <li><a href="#">Contact Us</a></li>
+            <ul class="links-list">
+                <li><a href="#post-section">Latest News</a></li>
+                <li><a href="#comment-section">Trending Blogs</a></li>
+                <li><a href="#auth-section">Contact Us</a></li>
             </ul>
         </section>
-
     </div>
 
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
