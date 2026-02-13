@@ -20,4 +20,16 @@ function vote(type) {
     }
 }
 
+//comment
+function addComment() {
+    const input = document.getElementById("commentInput");
+    const commentText = input.value;
+
+    if (commentText.trim() !== "") {
+        const li = document.createElement("li");
+        li.textContent = commentText;
+        document.getElementById("commentList").appendChild(li);
+        input.value = "";
+    }
+}
 
